@@ -1,14 +1,12 @@
-create table gallery.notices
+CREATE TABLE gallery.notices
 (
-    id              bigint auto_increment
-        primary key,
-    type            enum ('ALERT', 'COMMUNITY', 'INFORMATION', 'MAINTENANCE', 'PROMOTION') not null,
-    title           varchar(100)                                                           not null,
-    content         varchar(10000)                                                         not null,
-    status          enum ('ACTIVE', 'DELETED', 'EXPIRED', 'INACTIVE')                      not null,
-    is_slider_image tinyint(1) default 0                                                   not null,
-    is_modal_image  tinyint(1) default 0                                                   not null,
-    reg_date        timestamp  default current_timestamp()                                 not null,
-    mod_date        timestamp  default current_timestamp()                                 not null
+    id              BIGINT AUTO_INCREMENT PRIMARY KEY,
+    type            ENUM ('ALERT', 'COMMUNITY', 'INFORMATION', 'MAINTENANCE', 'PROMOTION') NOT NULL,
+    title           VARCHAR(100) NOT NULL,
+    content         VARCHAR(10000) NOT NULL,
+    status          ENUM ('ACTIVE', 'DELETED', 'EXPIRED', 'INACTIVE') NOT NULL,
+    is_slider_image TINYINT(1) DEFAULT 0 NOT NULL,
+    is_modal_image  TINYINT(1) DEFAULT 0 NOT NULL,
+    reg_date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL
 );
-

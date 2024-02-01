@@ -1,14 +1,10 @@
-create table gallery.carts
+CREATE TABLE gallery.carts
 (
-    id            bigint auto_increment
-        primary key,
-    user_id       bigint                                not null,
-    activate_flag tinyint(1)                            not null,
-    reg_date      timestamp default current_timestamp() not null,
-    mod_date      timestamp default current_timestamp() not null,
-    constraint UK_64t7ox312pqal3p7fg9o503c2
-        unique (user_id),
-    constraint FKb5o626f86h46m4s7ms6ginnop
-        foreign key (user_id) references gallery.users (id)
+    id            BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id       BIGINT NOT NULL,
+    activate_flag TINYINT(1) NOT NULL,
+    reg_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT UK_CARTS_USER_ID UNIQUE (user_id),
+    CONSTRAINT UK_CARTS_USER_ID FOREIGN KEY (user_id) REFERENCES gallery.users (id)
 );
-

@@ -1,15 +1,11 @@
-create table gallery.recently_viewed_products
+CREATE TABLE gallery.recently_viewed_products
 (
-    id         bigint auto_increment
-        primary key,
-    user_id    bigint                                not null,
-    product_id bigint                                not null,
-    viewed_at  timestamp default current_timestamp() not null,
-    reg_date   timestamp default current_timestamp() not null,
-    mod_date   timestamp default current_timestamp() not null,
-    constraint FK44cdeti9ans7phb8897xl55h6
-        foreign key (user_id) references gallery.users (id),
-    constraint FKgxf53i2ytkkdpwf7pwsmuf2qy
-        foreign key (product_id) references gallery.products (id)
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id    BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
+    viewed_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    reg_date   TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date   TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_RECENTLY_VIEWED_PRODUCTS_USER_ID FOREIGN KEY (user_id) REFERENCES gallery.users (id),
+    CONSTRAINT FK_RECENTLY_VIEWED_PRODUCTS_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES gallery.products (id)
 );
-

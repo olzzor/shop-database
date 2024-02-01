@@ -1,16 +1,11 @@
-create table gallery.stats_sales_category
+CREATE TABLE gallery.stats_sales_category
 (
-    id                   bigint auto_increment
-        primary key,
-    reference_date       date   not null,
-    category_id          bigint not null,
-    sold_order_count     int    not null,
-    canceled_order_count int    not null,
-    sold_amount          int    not null,
-    refund_amount        int    not null,
-    constraint UK_tc8cck3o2tuqb987hw2g4p4rh
-        unique (reference_date),
-    constraint FKeqato0cjqbv2qae623u0yf19g
-        foreign key (category_id) references gallery.categories (id)
+    id                   BIGINT AUTO_INCREMENT PRIMARY KEY,
+    reference_date       DATE NOT NULL,
+    category_id          BIGINT NOT NULL,
+    sold_order_count     INT NOT NULL,
+    canceled_order_count INT NOT NULL,
+    sold_amount          INT NOT NULL,
+    refund_amount        INT NOT NULL,
+    CONSTRAINT FK_CATEGORY_ID FOREIGN KEY (category_id) REFERENCES gallery.categories (id)
 );
-

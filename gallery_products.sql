@@ -1,19 +1,15 @@
-create table gallery.products
+CREATE TABLE gallery.products
 (
-    id           bigint auto_increment
-        primary key,
-    category_id  bigint                                                not null,
-    code         varchar(50)                                           not null,
-    name         varchar(100)                                          not null,
-    detail       varchar(2000)                                         null,
-    price        int                                                   not null,
-    discount_per int                                                   not null,
-    status       enum ('ON_SALE', 'OUT_OF_STOCK', 'TEMP_OUT_OF_STOCK') not null,
-    reg_date     timestamp default current_timestamp()                 not null,
-    mod_date     timestamp default current_timestamp()                 not null,
-    constraint UK_57ivhy5aj3qfmdvl6vxdfjs4p
-        unique (code),
-    constraint FKog2rp4qthbtt2lfyhfo32lsw9
-        foreign key (category_id) references gallery.categories (id)
+    id           BIGINT AUTO_INCREMENT PRIMARY KEY,
+    category_id  BIGINT NOT NULL,
+    code         VARCHAR(50) NOT NULL,
+    name         VARCHAR(100) NOT NULL,
+    detail       VARCHAR(2000) NULL,
+    price        INT NOT NULL,
+    discount_per INT NOT NULL,
+    status       ENUM ('ON_SALE', 'OUT_OF_STOCK', 'TEMP_OUT_OF_STOCK') NOT NULL,
+    reg_date     TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date     TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT UK_PRODUCTS_CODE UNIQUE (code),
+    CONSTRAINT FK_PRODUCTS_CATEGORY_ID FOREIGN KEY (category_id) REFERENCES gallery.categories (id)
 );
-

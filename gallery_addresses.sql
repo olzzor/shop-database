@@ -1,20 +1,17 @@
-create table gallery.addresses
+CREATE TABLE gallery.addresses
 (
-    id           bigint auto_increment
-        primary key,
-    user_id      bigint                                not null,
-    name         varchar(20)                           not null,
-    phone_number varchar(20)                           not null,
-    zip_code     varchar(20)                           not null,
-    province     varchar(50)                           not null,
-    city         varchar(50)                           not null,
-    address1     varchar(100)                          not null,
-    address2     varchar(100)                          null,
-    is_apartment tinyint(1)                            not null,
-    is_default   tinyint(1)                            not null,
-    reg_date     timestamp default current_timestamp() not null,
-    mod_date     timestamp default current_timestamp() not null,
-    constraint FK1fa36y2oqhao3wgg2rw1pi459
-        foreign key (user_id) references gallery.users (id)
+    id           BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id      BIGINT NOT NULL,
+    name         VARCHAR(20) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    zip_code     VARCHAR(20) NOT NULL,
+    province     VARCHAR(50) NOT NULL,
+    city         VARCHAR(50) NOT NULL,
+    address1     VARCHAR(100) NOT NULL,
+    address2     VARCHAR(100),
+    is_apartment TINYINT(1) NOT NULL,
+    is_default   TINYINT(1) NOT NULL,
+    reg_date     TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date     TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_ADDRESSES_USER_ID FOREIGN KEY (user_id) REFERENCES gallery.users (id)
 );
-

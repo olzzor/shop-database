@@ -1,13 +1,10 @@
-create table gallery.product_sizes
+CREATE TABLE gallery.product_sizes
 (
-    id         bigint auto_increment
-        primary key,
-    product_id bigint                                not null,
-    size       varchar(50)                           not null,
-    quantity   int                                   not null,
-    reg_date   timestamp default current_timestamp() not null,
-    mod_date   timestamp default current_timestamp() not null,
-    constraint FK4isa0j51hpdn7cx04m831jic4
-        foreign key (product_id) references gallery.products (id)
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    product_id BIGINT NOT NULL,
+    size       VARCHAR(50) NOT NULL,
+    quantity   INT NOT NULL,
+    reg_date   TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date   TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_PRODUCT_SIZES_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES gallery.products (id)
 );
-

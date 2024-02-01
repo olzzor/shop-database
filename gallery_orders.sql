@@ -1,17 +1,14 @@
-create table gallery.orders
+CREATE TABLE gallery.orders
 (
-    id             bigint auto_increment
-        primary key,
-    user_id        bigint                                                                                                                      not null,
-    order_number   varchar(50)                                                                                                                 not null,
-    buyer_email    varchar(50)                                                                                                                 not null,
-    payment_method varchar(10)                                                                                                                 not null,
-    payment_amount int                                                                                                                         not null,
-    card_number    varchar(16)                                                                                                                 null,
-    status         enum ('CANCEL_COMPLETED', 'CANCEL_REQUESTED', 'ORDER_CONFIRMED', 'ORDER_FINALIZED', 'ORDER_RECEIVED', 'SHIPMENT_PREPARING') not null,
-    reg_date       timestamp default current_timestamp()                                                                                       not null,
-    mod_date       timestamp default current_timestamp()                                                                                       not null,
-    constraint FK32ql8ubntj5uh44ph9659tiih
-        foreign key (user_id) references gallery.users (id)
+    id             BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id        BIGINT NOT NULL,
+    order_number   VARCHAR(50) NOT NULL,
+    buyer_email    VARCHAR(50) NOT NULL,
+    payment_method VARCHAR(10) NOT NULL,
+    payment_amount INT NOT NULL,
+    card_number    VARCHAR(16) NULL,
+    status         ENUM ('CANCEL_COMPLETED', 'CANCEL_REQUESTED', 'ORDER_CONFIRMED', 'ORDER_FINALIZED', 'ORDER_RECEIVED', 'SHIPMENT_PREPARING') NOT NULL,
+    reg_date       TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date       TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_ORDERS_USER_ID FOREIGN KEY (user_id) REFERENCES gallery.users (id)
 );
-

@@ -1,14 +1,11 @@
-create table gallery.notice_images
+CREATE TABLE gallery.notice_images
 (
-    id        bigint auto_increment
-        primary key,
-    notice_id bigint                                not null,
-    type      enum ('MAIN', 'MODAL', 'SLIDER')      not null,
-    file_name varchar(100)                          not null,
-    file_path varchar(100)                          not null,
-    reg_date  timestamp default current_timestamp() not null,
-    mod_date  timestamp default current_timestamp() not null,
-    constraint FKiqbbja0q8mlwc8nfd2gyhrux4
-        foreign key (notice_id) references gallery.notices (id)
+    id        BIGINT AUTO_INCREMENT PRIMARY KEY,
+    notice_id BIGINT NOT NULL,
+    type      ENUM ('MAIN', 'MODAL', 'SLIDER') NOT NULL,
+    file_name VARCHAR(100) NOT NULL,
+    file_path VARCHAR(100) NOT NULL,
+    reg_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_NOTICE_IMAGES_NOTICE_ID FOREIGN KEY (notice_id) REFERENCES gallery.notices (id)
 );
-

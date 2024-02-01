@@ -1,19 +1,13 @@
-create table gallery.cart_product
+CREATE TABLE gallery.cart_product
 (
-    id              bigint auto_increment
-        primary key,
-    cart_id         bigint not null,
-    product_id      bigint not null,
-    product_size_id bigint not null,
-    quantity        int    not null,
-    coupon_id       bigint null,
-    constraint FK8bhydybldutgf7a82oxkctlgs
-        foreign key (cart_id) references gallery.carts (id),
-    constraint FKftoxy7kpt3y030m3yjhs1t62f
-        foreign key (coupon_id) references gallery.coupons (id),
-    constraint FKj4tv1xhgro6man14373qt7cu6
-        foreign key (product_size_id) references gallery.product_sizes (id),
-    constraint FKreo7xwp4sy8mglrlf0b6hkr3e
-        foreign key (product_id) references gallery.products (id)
+    id              BIGINT AUTO_INCREMENT PRIMARY KEY,
+    cart_id         BIGINT NOT NULL,
+    product_id      BIGINT NOT NULL,
+    product_size_id BIGINT NOT NULL,
+    quantity        INT NOT NULL,
+    coupon_id       BIGINT,
+    CONSTRAINT FK_CART_PRODUCT_CART_ID FOREIGN KEY (cart_id) REFERENCES gallery.carts (id),
+    CONSTRAINT FK_CART_PRODUCT_COUPON_ID FOREIGN KEY (coupon_id) REFERENCES gallery.coupons (id),
+    CONSTRAINT FK_CART_PRODUCT_PRODUCT_SIZE_ID FOREIGN KEY (product_size_id) REFERENCES gallery.product_sizes (id),
+    CONSTRAINT FK_CART_PRODUCT_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES gallery.products (id)
 );
-

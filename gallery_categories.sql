@@ -1,21 +1,20 @@
-create table gallery.categories
+CREATE TABLE gallery.categories
 (
-    id       bigint auto_increment
-        primary key,
-    code     varchar(50)                           not null,
-    name     varchar(50)                           not null,
-    reg_date timestamp default current_timestamp() not null,
-    mod_date timestamp default current_timestamp() not null
+    id       BIGINT AUTO_INCREMENT PRIMARY KEY,
+    code     VARCHAR(50) NOT NULL,
+    name     VARCHAR(50) NOT NULL,
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL
 );
 
-insert into gallery.categories (code, name) values ('tops', 'TOPS');
-insert into gallery.categories (code, name) values ('shirts', 'SHIRTS');
-insert into gallery.categories (code, name) values ('sweats', 'SWEATS');
-insert into gallery.categories (code, name) values ('knits', 'KNITS');
-insert into gallery.categories (code, name) values ('pants', 'PANTS');
-insert into gallery.categories (code, name) values ('jeans', 'JEANS');
-insert into gallery.categories (code, name) values ('skirts', 'SKIRTS');
-insert into gallery.categories (code, name) values ('outer', 'OUTER');
-insert into gallery.categories (code, name) values ('headwear', 'HEADWEAR');
-insert into gallery.categories (code, name) values ('footwear', 'FOOTWEAR');
-insert into gallery.categories (code, name) values ('accessories', 'ACCESSORIES');
+INSERT INTO gallery.categories (code, name) VALUES ('tops', 'TOPS');
+INSERT INTO gallery.categories (code, name) VALUES ('shirts', 'SHIRTS');
+INSERT INTO gallery.categories (code, name) VALUES ('sweats', 'SWEATS');
+INSERT INTO gallery.categories (code, name) VALUES ('knits', 'KNITS');
+INSERT INTO gallery.categories (code, name) VALUES ('pants', 'PANTS');
+INSERT INTO gallery.categories (code, name) VALUES ('jeans', 'JEANS');
+INSERT INTO gallery.categories (code, name) VALUES ('skirts', 'SKIRTS');
+INSERT INTO gallery.categories (code, name) VALUES ('outer', 'OUTER');
+INSERT INTO gallery.categories (code, name) VALUES ('headwear', 'HEADWEAR');
+INSERT INTO gallery.categories (code, name) VALUES ('footwear', 'FOOTWEAR');
+INSERT INTO gallery.categories (code, name) VALUES ('accessories', 'ACCESSORIES');

@@ -1,13 +1,10 @@
-create table gallery.refresh_token
+CREATE TABLE gallery.refresh_token
 (
-    id       bigint auto_increment
-        primary key,
-    user_id  bigint                                not null,
-    token    varchar(255)                          not null,
-    exp_date timestamp                             not null,
-    reg_date timestamp default current_timestamp() not null,
-    mod_date timestamp default current_timestamp() not null,
-    constraint FKjtx87i0jvq2svedphegvdwcuy
-        foreign key (user_id) references gallery.users (id)
+    id       BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id  BIGINT NOT NULL,
+    token    VARCHAR(255) NOT NULL,
+    exp_date TIMESTAMP NOT NULL,
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_REFRESH_TOKEN_USER_ID FOREIGN KEY (user_id) REFERENCES gallery.users (id)
 );
-

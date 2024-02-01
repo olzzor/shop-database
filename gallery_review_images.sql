@@ -1,14 +1,11 @@
-create table gallery.review_images
+CREATE TABLE gallery.review_images
 (
-    id            bigint auto_increment
-        primary key,
-    review_id     bigint                                not null,
-    file_path     varchar(100)                          not null,
-    file_name     varchar(100)                          not null,
-    display_order int                                   not null,
-    reg_date      timestamp default current_timestamp() not null,
-    mod_date      timestamp default current_timestamp() not null,
-    constraint FK3aayo5bjciyemf3bvvt987hkr
-        foreign key (review_id) references gallery.reviews (id)
+    id            BIGINT AUTO_INCREMENT PRIMARY KEY,
+    review_id     BIGINT NOT NULL,
+    file_path     VARCHAR(100) NOT NULL,
+    file_name     VARCHAR(100) NOT NULL,
+    display_order INT NOT NULL,
+    reg_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_REVIEW_IMAGES_REVIEW_ID FOREIGN KEY (review_id) REFERENCES gallery.reviews (id)
 );
-

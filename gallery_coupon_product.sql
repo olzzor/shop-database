@@ -1,12 +1,8 @@
-create table gallery.coupon_product
+CREATE TABLE gallery.coupon_product
 (
-    id         bigint auto_increment
-        primary key,
-    coupon_id  bigint not null,
-    product_id bigint not null,
-    constraint FK31w7tbggm784bwf6a7p13ywya
-        foreign key (coupon_id) references gallery.coupons (id),
-    constraint FK67421iflftu4xixt0bllakkvc
-        foreign key (product_id) references gallery.products (id)
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    coupon_id  BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
+    CONSTRAINT FK_COUPON_PRODUCT_COUPON_ID FOREIGN KEY (coupon_id) REFERENCES gallery.coupons (id),
+    CONSTRAINT FK_COUPON_PRODUCT_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES gallery.products (id)
 );
-

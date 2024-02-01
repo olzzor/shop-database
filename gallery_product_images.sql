@@ -1,14 +1,11 @@
-create table gallery.product_images
+CREATE TABLE gallery.product_images
 (
-    id            bigint auto_increment
-        primary key,
-    product_id    bigint                                not null,
-    file_name     varchar(100)                          not null,
-    file_path     varchar(100)                          not null,
-    display_order int(10)                               not null,
-    reg_date      timestamp default current_timestamp() not null,
-    mod_date      timestamp default current_timestamp() not null,
-    constraint FKqnq71xsohugpqwf3c9gxmsuy
-        foreign key (product_id) references gallery.products (id)
+    id            BIGINT AUTO_INCREMENT PRIMARY KEY,
+    product_id    BIGINT NOT NULL,
+    file_name     VARCHAR(100) NOT NULL,
+    file_path     VARCHAR(100) NOT NULL,
+    display_order INT(10) NOT NULL,
+    reg_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_PRODUCT_IMAGES_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES gallery.products (id)
 );
-

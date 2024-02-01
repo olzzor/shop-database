@@ -1,13 +1,10 @@
-create table gallery.stats_sales
+CREATE TABLE gallery.stats_sales
 (
-    id                   bigint auto_increment
-        primary key,
-    reference_date       date not null,
-    sold_order_count     int  not null,
-    canceled_order_count int  not null,
-    sold_amount          int  not null,
-    refund_amount        int  not null,
-    constraint UK_bj20563kdikb0vd763dj0n8aq
-        unique (reference_date)
+    id                   BIGINT AUTO_INCREMENT PRIMARY KEY,
+    reference_date       DATE NOT NULL,
+    sold_order_count     INT NOT NULL,
+    canceled_order_count INT NOT NULL,
+    sold_amount          INT NOT NULL,
+    refund_amount        INT NOT NULL,
+    CONSTRAINT UK_REF_DATE_STATS_SALES UNIQUE (reference_date)
 );
-

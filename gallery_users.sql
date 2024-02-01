@@ -1,16 +1,14 @@
-create table gallery.users
+CREATE TABLE gallery.users
 (
-    id            bigint auto_increment
-        primary key,
-    email         varchar(50)                                            not null,
-    password      varchar(100)                                           null,
-    name          varchar(20)                                            null,
-    phone_number  varchar(20)                                            null,
-    auth_provider enum ('LOCAL', 'KAKAO', 'NAVER', 'GOOGLE', 'FACEBOOK') null,
-    social_id     varchar(100)                                           null,
-    admin_flag    tinyint(1) default 0                                   not null,
-    activate_flag tinyint(1) default 1                                   not null,
-    reg_date      timestamp  default current_timestamp()                 not null,
-    mod_date      timestamp  default current_timestamp()                 not null
+    id            BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email         VARCHAR(50) NOT NULL,
+    password      VARCHAR(100) NULL,
+    name          VARCHAR(20) NULL,
+    phone_number  VARCHAR(20) NULL,
+    auth_provider ENUM('LOCAL', 'KAKAO', 'NAVER', 'GOOGLE', 'FACEBOOK') NULL,
+    social_id     VARCHAR(100) NULL,
+    admin_flag    TINYINT(1) DEFAULT 0 NOT NULL,
+    activate_flag TINYINT(1) DEFAULT 1 NOT NULL,
+    reg_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL
 );
-

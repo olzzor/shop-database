@@ -1,27 +1,20 @@
-create table gallery.order_details
+CREATE TABLE gallery.order_details
 (
-    id              bigint auto_increment
-        primary key,
-    order_id        bigint                                not null,
-    product_id      bigint                                not null,
-    product_size_id bigint                                not null,
-    shipment_id     bigint                                not null,
-    coupon_id       bigint                                null,
-    quantity        int                                   not null,
-    unit_price      int                                   not null,
-    discount_per    int                                   not null,
-    final_price     int                                   not null,
-    reg_date        timestamp default current_timestamp() not null,
-    mod_date        timestamp default current_timestamp() not null,
-    constraint FK4q98utpd73imf4yhttm3w0eax
-        foreign key (product_id) references gallery.products (id),
-    constraint FKes6hxuno63dgo9gtes55x2j2v
-        foreign key (product_size_id) references gallery.product_sizes (id),
-    constraint FKh2ss50pxjdcjqlc0qrj1qtnwt
-        foreign key (coupon_id) references gallery.coupons (id),
-    constraint FKjyu2qbqt8gnvno9oe9j2s2ldk
-        foreign key (order_id) references gallery.orders (id),
-    constraint FKo7llktimeennx1k67rgc5r1y6
-        foreign key (shipment_id) references gallery.shipments (id)
+    id              BIGINT AUTO_INCREMENT PRIMARY KEY,
+    order_id        BIGINT NOT NULL,
+    product_id      BIGINT NOT NULL,
+    product_size_id BIGINT NOT NULL,
+    shipment_id     BIGINT NOT NULL,
+    coupon_id       BIGINT NULL,
+    quantity        INT NOT NULL,
+    unit_price      INT NOT NULL,
+    discount_per    INT NOT NULL,
+    final_price     INT NOT NULL,
+    reg_date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT FK_ORDER_DETAILS_PRODUCT_ID FOREIGN KEY (product_id) REFERENCES gallery.products (id),
+    CONSTRAINT FK_ORDER_DETAILS_PRODUCT_SIZE_ID FOREIGN KEY (product_size_id) REFERENCES gallery.product_sizes (id),
+    CONSTRAINT FK_ORDER_DETAILS_COUPON_ID FOREIGN KEY (coupon_id) REFERENCES gallery.coupons (id),
+    CONSTRAINT FK_ORDER_DETAILS_ORDER_ID FOREIGN KEY (order_id) REFERENCES gallery.orders (id),
+    CONSTRAINT FK_ORDER_DETAILS_SHIPMENT_ID FOREIGN KEY (shipment_id) REFERENCES gallery.shipments (id)
 );
-
