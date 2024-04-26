@@ -1,0 +1,10 @@
+CREATE TABLE shop.carts
+(
+    id            BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id       BIGINT NOT NULL,
+    is_activate   TINYINT(1) NOT NULL,
+    reg_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    mod_date      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
+    CONSTRAINT UK_CARTS_USER_ID UNIQUE (user_id),
+    CONSTRAINT UK_CARTS_USER_ID FOREIGN KEY (user_id) REFERENCES shop.users (id)
+);

@@ -1,4 +1,4 @@
-CREATE TABLE gallery.password_reset_tokens
+CREATE TABLE shop.password_reset_tokens
 (
     id       BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id  BIGINT NOT NULL,
@@ -6,5 +6,5 @@ CREATE TABLE gallery.password_reset_tokens
     exp_date TIMESTAMP NOT NULL,
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
     mod_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP() NOT NULL,
-    CONSTRAINT FK_PASSWORD_RESET_TOKENS_USER_ID FOREIGN KEY (user_id) REFERENCES gallery.users (id)
+    CONSTRAINT FK_PASSWORD_RESET_TOKENS_USER_ID FOREIGN KEY (user_id) REFERENCES shop.users (id)
 );
